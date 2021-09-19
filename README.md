@@ -1,2 +1,2 @@
-# My_First_9_Projects
-My First 9 Projects on GitHub
+# My_First_9_JS_Projects
+My First 9 JavaScripts Programms on GitHub
