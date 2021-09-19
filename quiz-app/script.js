@@ -8,34 +8,60 @@ const c_text = document.getElementById("2_text")
 const d_text = document.getElementById("3_text")
 const submitBtn = document.getElementById("submit")
 
-const arr = [];
-const correctArr = [];
+
+const array = [];
+
+const score = 0;
+
+const currentQuiz = 0;
 
 
-//{0:[],0:[]}
 
+
+console.log(array)
 
 loadQuiz();
+
+
+
+
 
 
 async function loadQuiz(){
     
  
-    const resp = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
+    const resp = await fetch("https://opentdb.com/api.php?amount=5&type=multiple");
     const respData = await resp.json();
-    const quizData = respData.results[0];
+    const quizData = respData;
     
+    for(let i=0; i<5;i++){
+        array.push({
+            question:`${quizData.results[i].question}`,
+            correct:`${quizData.results[i].correct_answer}`,
+            incorrect3:`${quizData.results[i].incorrect_answers[0]}`,
+            incorrect1:`${quizData.results[i].incorrect_answers[1]}`,
+            incorrect2:`${quizData.results[i].incorrect_answers[2]}`,
+        })
 
-    questionEl.innerHTML = quizData.question;
-
-    for(let i = 0; i<3; i++){
-        arr.push(quizData.incorrect_answers[i])
     }
 
-    arr.push(quizData.correct_answer);
+    console.log(array)
+
+
+
+/*
+
+    questionEl.innerHTML = quizData.results[0].question;
+
+
+    for(let i = 0; i<3; i++){
+        arr.push(quizData.results[0].incorrect_answers[i])
+    }
+
+    arr.push(quizData.results[0].correct_answer);
     shuffle(arr);
 
-    correctArr.push(arr.indexOf(quizData.correct_answer))
+    correctArr.push(arr.indexOf(quizData.results[0].correct_answer))
 
     console.log(arr)
     console.log(correctArr)
@@ -47,7 +73,25 @@ async function loadQuiz(){
     d_text.innerHTML =  arr[3];
     
 
-    
+
+    array.push({
+        question:`${quizData.results[0].question}`,
+        correct:`${quizData.results[0].correct_answer}`,
+        incorrect3:`${quizData.results[0].incorrect_answers[0]}`,
+        incorrect1:`${quizData.results[0].incorrect_answers[1]}`,
+        incorrect2:`${quizData.results[0].incorrect_answers[2]}`,
+    })
+
+    array.push({
+        question:`${quizData.results[1].question}`,
+        correct:`${quizData.results[1].correct_answer}`,
+        incorrect3:`${quizData.results[1].incorrect_answers[0]}`,
+        incorrect1:`${quizData.results[1].incorrect_answers[1]}`,
+        incorrect2:`${quizData.results[1].incorrect_answers[2]}`,
+    })
+
+    console.log(array[2].question)
+    */
 }
 
 
@@ -98,6 +142,8 @@ function deselectAnswers(){
 */
 
 submitBtn.addEventListener("click", () => {
+
+
     const answer = getSelected();
 
     console.log(answer)
