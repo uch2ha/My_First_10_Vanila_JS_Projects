@@ -9,23 +9,17 @@ const d_text = document.getElementById("3_text")
 const submitBtn = document.getElementById("submit")
 
 const arr = [];
-const correctArr = [];
-
-
-//{0:[],0:[]}
-
+const correctArrId = [];
 
 loadQuiz();
 
 
 async function loadQuiz(){
     
- 
     const resp = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
     const respData = await resp.json();
     const quizData = respData.results[0];
     
-
     questionEl.innerHTML = quizData.question;
 
     for(let i = 0; i<3; i++){
@@ -35,12 +29,8 @@ async function loadQuiz(){
     arr.push(quizData.correct_answer);
     shuffle(arr);
 
-    correctArr.push(arr.indexOf(quizData.correct_answer))
+    correctArrId.push(arr.indexOf(quizData.correct_answer))
 
-    console.log(arr)
-    console.log(correctArr)
-
-    
     a_text.innerHTML =  arr[0];
     b_text.innerHTML =  arr[1];
     c_text.innerHTML =  arr[2];
@@ -49,10 +39,6 @@ async function loadQuiz(){
 
     
 }
-
-
-
-
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -73,7 +59,6 @@ function shuffle(array) {
   }
 
 
-
 function getSelected() {
     
     let answer = undefined;
@@ -87,7 +72,8 @@ function getSelected() {
     return answer;
 }
 
-/* not needed
+/* not needed for now
+
 function deselectAnswers(){
     answerEls.forEach((answerEl) => {
         if (answerEl.checked) {
@@ -97,14 +83,12 @@ function deselectAnswers(){
 }
 */
 
+
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
-
-    console.log(answer)
-    console.log(correctArr[0])
-
+    
     if (answer) {
-        if(answer == correctArr[0]){
+        if(answer == correctArrId[0]){
             quiz.innerHTML = 
             `<h2> Right! </h2>
             <button onclick="location.reload()">Next question</button>`;
@@ -116,9 +100,9 @@ submitBtn.addEventListener("click", () => {
         
     
         }
+        
     }
     
-
 })
 
 
