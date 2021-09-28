@@ -34,6 +34,7 @@ async function getMealById(id) {
 
 
 async function getMealsBySearch(term) {
+
     const resp = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + term);
 
     const respData = await resp.json();
@@ -167,6 +168,7 @@ function showMealInfo(mealData) {
     mealEl.innerHTML = `     
         <h1>${mealData.strMeal}</h1>
         <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}"/>
+        <a href="${mealData.strYoutube}" class="youtube">Watch on Youtube<i class="fab fa-youtube"></i></a>
         <p>${mealData.strInstructions}</p>
         <h3>Ingredients:</h3>
         <ul>
@@ -186,13 +188,23 @@ searchBtn.addEventListener("click", async () => {
     mealsEl.innerHTML = "";
 
     const search = searchTerm.value;
+
+    if(search == ""){
+        alert("Enter the name of the meal")
+        location.reload()
+    }
+
     const meals = await getMealsBySearch(search);
 
-    if (meals) {
+    if (!meals) {
+        alert("Wrong meals name or it doesn't exist on the site")
+        location.reload()
+    }else{
         meals.forEach((meal) => {
             addMeal(meal);
         })
     }
+
 
 
 })

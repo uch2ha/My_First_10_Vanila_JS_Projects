@@ -9,9 +9,13 @@ async function getUser(userName){
     const resp = await fetch(APIURL + userName)
     const respData = await resp.json();
 
-    createUserCard(respData);
-
-    getRepose(userName)
+    if(resp.ok == false){
+        alert("User "+userName+" is not found")
+    }else{
+        createUserCard(respData);
+        getRepose(userName)
+    }
+    
 }
 
 async function getRepose(userName){

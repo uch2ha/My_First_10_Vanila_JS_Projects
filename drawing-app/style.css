@@ -7,7 +7,8 @@
 }
 
 body{
-    background-color: #f5f5f5;
+    background-color: #f8ceec;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,11 +19,16 @@ body{
 }
 
 canvas{
-    border: 2px solid rebeccapurple;
+    background-color: white;
+    border: 2px solid #6a3a86;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .toolbox{
-    background-color: rebeccapurple;
+    background-color: #6a3a86;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,6 +40,7 @@ canvas{
 .toolbox > *{
     background-color: white;
     border: none;
+    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -42,6 +49,11 @@ canvas{
     padding: 0.25rem;
     height: 50px;
     width: 50px;
+}
+
+.toolbox button:active {
+    background-color: rgb(60, 24, 95);
+    transform: translateY(2px);
 }
 
 .toolbox >*:last-child{

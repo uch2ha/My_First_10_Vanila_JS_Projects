@@ -36,8 +36,6 @@ async function loadQuiz(){
     c_text.innerHTML =  arr[2];
     d_text.innerHTML =  arr[3];
     
-
-    
 }
 
 function shuffle(array) {
@@ -90,13 +88,18 @@ submitBtn.addEventListener("click", () => {
     if (answer) {
         if(answer == correctArrId[0]){
             quiz.innerHTML = 
-            `<h2> Right! </h2>
-            <button onclick="location.reload()">Next question</button>`;
+            `
+            <h2> Right! </h2>
+            <button onclick="location.reload()">Next question</button>
+            `;
 
         } else {
             quiz.innerHTML = 
-            `<h2> Wrong! </h2>
-            <button onclick="location.reload()">Next question</button>`; 
+            `
+            <h2> Wrong! </h2>
+            <h3>Correct answer is "${arr[correctArrId[0]]}"</h3>
+            <button onclick="location.reload()">Next question</button>
+            `; 
         
     
         }

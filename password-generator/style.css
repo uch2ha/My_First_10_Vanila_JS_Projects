@@ -7,7 +7,8 @@
 }
 
 body{
-    background-color: rebeccapurple;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
     color: white;
     display: flex;
     align-items: center;
@@ -18,18 +19,19 @@ body{
 }
 
 .pw-container{
-    background-color: rgb(55, 21, 90);
+    background-color: rgb(81, 79, 206);
+    border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     min-width: 500px;
 }
 
 .pw-header{
     padding: 1rem;
-    
 }
 
 .pw-block{
-    background-color: rebeccapurple;
+    background-color: #63a4ff;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,8 +54,9 @@ body{
     margin-right: 0.6rem;
 }
 
+ /* click animation */
 .pw-block button:active {
-    background-color: lightgreen;
+    background-color: rgb(37, 137, 231);
     transform: translateY(4px);
 }
 
@@ -69,14 +72,17 @@ body{
 }
 
 .len{
+    border-radius: 5px;
+    border: none;
     font-size: 1rem;
     font-weight: bold;
-    width: 3rem;
+    width: 2.7rem;
 }
 
 .generate{
     border: none;
-    background-color: rgb(72, 72, 252);
+    background-color: #4c92f5;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
     display: block;
@@ -87,8 +93,9 @@ body{
     width: 100%;
 }
 
+ /* click animation */
 .generate:active {
-    background-color: blue;
+    background-color: #1978fd;
     transform: translateY(4px);
 }
 

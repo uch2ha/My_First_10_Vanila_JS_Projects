@@ -9,8 +9,7 @@ const secondsEl = document.getElementById("seconds");
 function countdown() {
     const currentDate = new Date();
     const newYearsDate = new Date("1 Jan 2000");
-    newYearsDate.setFullYear(currentDate.getFullYear()+1, 1,1);
-    
+    newYearsDate.setFullYear(currentDate.getFullYear()+1, 0, 1);
 
     const totalSeconds = (newYearsDate - currentDate) / 1000;
 

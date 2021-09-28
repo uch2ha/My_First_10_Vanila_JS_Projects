@@ -51,7 +51,11 @@ header button{
     color: rgb(138, 138, 138);
     font-size: 1.5rem;
     margin-left: 10px;
+}
 
+header button:active {
+    color: #f8847a;
+    transform: translateY(2px);
 }
 
 .fav-conteiner{
@@ -125,6 +129,21 @@ header button{
 
 .meal img {
     cursor: pointer;
+}
+
+.youtube{
+    font-size: 1.5rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.youtube i{
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    color: red;
 }
 
 .meal-header{

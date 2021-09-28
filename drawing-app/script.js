@@ -6,7 +6,7 @@ const colorEl = document.getElementById("color")
 const clearEl = document.getElementById("clear")  
 const ctx = canvas.getContext("2d") 
 
-let size = 30;
+let size = 10;
 let isPressed = false;
 let color = "black";
 let x = undefined;
